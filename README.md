@@ -1,6 +1,6 @@
-# Motivational Gym
-
-## Task 2
+# "Motivational Gym"
+### Daniel Park (53807657)
+#### Task 2
 
 - This application will
 allow people to register a **Gym Membership** and encourage people
