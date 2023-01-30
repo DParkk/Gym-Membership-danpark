@@ -20,3 +20,4 @@ the gym offered some free InBody information. So I thought it will be motivating
 InBody information anytime without any cost in gym. Also, the advice they will be provided such as
 diet, and work-out routine will motivate them to go to the gym.
   
+
