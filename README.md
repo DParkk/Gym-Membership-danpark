@@ -14,7 +14,7 @@ it will provide their BMI, and LBM (Lean Body Mass). Then clients will also
  know if their BMI or LBM is normal compared to average scale. Also, there will be some advice depending 
 on their InBody scale.
 
-  Lastly, they will input their run-distance(km) for the day. Then comparing with other members, they will know
+  Lastly, they will input their *run-distance(km)* for the day. Then comparing with other members, they will know
  their place depending on their run distance.
 - This application is targeted to people who are trying to work out and want to
 see their work-out progress with InBody information.
