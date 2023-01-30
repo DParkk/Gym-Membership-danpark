@@ -7,9 +7,9 @@ allow people to register a **Gym Membership** and encourage people
 to work out by showing their **InBody Information** such as bmi and lbm.
 
 - For registering a gym membership, a client will be prompted to enter their 
-name, date of birth, contact number, emergency contact, ID(name), and password(4-digit).
+*name, date of birth, contact number, emergency contact, ID(name)*, and *password(4-digit)*.
 
-  Then, the clients will be prompted to enter their age, sex, height, and weight. With those information, 
+  Then, the clients will be prompted to enter their *age, sex, height*, and *weight*. With those information, 
 it will provide their BMI, and LBM (Lean Body Mass). Then clients will also
  know if their BMI or LBM is normal compared to average scale. Also, there will be some advice depending 
 on their InBody scale.
