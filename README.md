@@ -21,6 +21,6 @@ see their work-out progress with InBody information.
 - This idea was tempting to me because when I visited a fancy gym in Korea,
 the gym offered some free InBody information. So I thought it will be motivating for people to know their
 InBody information anytime without any cost in gym. The advice they will be provided such as
-diet, and work-out routine will motivate them to go to the gym.
+recommended diet and work-out routine will motivate their work-out journey even more!
 The last part where they input their run-distance will give more fun and competition between gym members.  
 
