@@ -25,7 +25,7 @@ recommended diet and work-out routine will motivate their work-out journey even 
 The last part where they can compete with their run-distance will give more fun and competition between gym members.  
 
 ## "User stories"
-- As a suer, I want to be able to add a infinite amount of member's information to the gym.
+- As a user, I want to be able to add a infinite amount of member's information to the gym.
 - As a user, I want to be able to add a "run-distance" to "run-distance" of gym members.
 - As a user, I want to see my place for "run-distance" among the gym members.
 - As a user, I want to be able to see my BMI score and LBM score.
