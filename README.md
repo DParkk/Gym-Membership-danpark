@@ -28,6 +28,6 @@ The last part where they can compete with their run-distance will give more fun 
 - As a user, I want to be able to add a infinite amount of member's information to the gym.
 - As a user, I want to be able to add a "run-distance" to "run-distance" of gym members.
 - As a user, I want to see my place for "run-distance" among the gym members.
-- As a user, I want to be able to see my BMI score and LBM score.
-- As a user, I want to be able to check if my InBody score is in the average or not.
+- As a user, I want to be able to see my BMI score.
+- As a user, I want to be able to check if my BMI score is in the average or not.
 - As a user, I want to see an interface where I can input my personal information for a membership register.
