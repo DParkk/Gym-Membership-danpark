@@ -30,5 +30,4 @@ The last part where they can compete with their run-distance will give more fun 
 - As a user, I want to see my place for "run-distance" among the gym members.
 - As a user, I want to be able to see my BMI score and LBM score.
 - As a user, I want to be able to check if my InBody score is in the average or not.
-- As a user, I want to get some advice based on my InBody score.
 - As a user, I want to see an interface where I can input my personal information for a membership register.
