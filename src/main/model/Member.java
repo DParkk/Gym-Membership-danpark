@@ -1,15 +1,16 @@
 package model;
 
-import java.lang.reflect.Array;
+import java.math.BigDecimal;
+import java.math.MathContext;
 import java.util.ArrayList;
 
 public class Member {
     private String name;
-    private int weight;
-    private int height;
+    private double weight;
+    private double height;
     private ArrayList<Integer> runDistance;
 
-    public Member(String name, int height, int weight) {
+    public Member(String name, double height, double weight) {
         this.name = name;
         this.weight = weight;
         this.height = height;
@@ -20,12 +21,35 @@ public class Member {
         return name;
     }
 
-    public int getHeight() {
-        return height;
+
+    public double bmiCalculator() {
+        return (weight / (height * height) * 10000);
     }
 
-    public int getWeight() {
-        return weight;
+    public double bmiConverter() {
+        double bmi = bmiCalculator();
+        BigDecimal bd = new BigDecimal(bmi);
+        bd = bd.round(new MathContext(3));
+        double rounded = bd.doubleValue();
+
+        return rounded;
+
+    }
+
+    public void adviser() {
+
+        if (bmiConverter() < 18.5) {
+            System.out.println("You are within the underweight range..");
+
+        } else if (bmiConverter() <= 24.9) {
+            System.out.println("You are within the Healthy Weight range.");
+
+        } else if ((bmiConverter() <= 29.9)) {
+            System.out.println("You are within the overweight range.");
+
+        } else {
+            System.out.println("You are within the obese range.");
+        }
     }
 
     public void addDistance(int distance) {
@@ -36,7 +60,6 @@ public class Member {
         int total = 0;
 
         for (int distance : runDistance) {
-
             total += distance;
         }
         return total;

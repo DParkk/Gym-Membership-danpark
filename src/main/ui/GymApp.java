@@ -7,46 +7,76 @@ import java.util.Scanner;
 
 public class GymApp {
 
-    public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
+    private Scanner input;
 
-        ArrayList<Member> memberList = new ArrayList<>();
+    ArrayList<Member> memberList = new ArrayList<>();
 
+
+    public GymApp() {
+        runApp();
+    }
+
+
+    public void runApp() {
+
+        input = new Scanner(System.in);
 
         boolean condition = true;
 
         while (condition) {
-            System.out.println("Enter your Name: ");
-            String name = scanner.nextLine();
 
-            System.out.println("Enter your height: ");
-            int height = scanner.nextInt();
+            System.out.println("Hi, do you want to register? (y/n)");
+            String checkIn = input.nextLine();
 
-            System.out.println("Enter your weight: ");
-            int weight = scanner.nextInt();
+            if (checkIn.equals("y")) {
+                System.out.println("Enter your Name: ");
+                String name = input.nextLine();
 
-            Member member = new Member(name, height, weight);
+                System.out.println("Enter your height: ");
+                int height = input.nextInt();
 
-            memberList.add(member);
+                System.out.println("Enter your weight: ");
+                int weight = input.nextInt();
 
-            System.out.println("Thanks for joining our Gym!");
-            scanner.nextLine();
+                Member member = new Member(name, height, weight);
 
+                memberList.add(member);
 
+                System.out.println("Your BMI score is " + member.bmiConverter());
+
+                member.adviser();
+
+                System.out.println("Keep Grinding!");
+                input.nextLine();
+
+            } else {
+                condition = false;
+            }
         }
 
+
+
+
         for (Member member : memberList) {
-            System.out.println("Hi " + member.getName() + ", please enter your run distance(km): ");
-            int distance = scanner.nextInt();
+            System.out.println(member.getName() + " please enter your run distance(km): ");
+            System.out.println("(To quit, enter '0')");
+            int distance = input.nextInt();
+
+            if (distance == 0) {
+                System.out.println("Hope to see you again!");
+                System.exit(0);
+
+            }
+
             member.addDistance(distance);
             System.out.println(member.getName() + " has run " + distance + "km.");
 
         }
 
         for (Member member : memberList) {
-            System.out.println(member.getName() + " has a total distance of: " + member.getTotalDistance() + "km.");
+            System.out.println(member.getName() + " has a running distance of: " + member.getTotalDistance() + "km.");
         }
     }
-
 }
+
