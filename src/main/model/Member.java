@@ -5,10 +5,10 @@ import java.math.MathContext;
 import java.util.ArrayList;
 
 public class Member {
-    private String name;
-    private double weight;
-    private double height;
-    private ArrayList<Integer> runDistance;
+    private final String name;
+    private final double weight;
+    private final double height;
+    private final ArrayList<Integer> runDistance;
 
     public Member(String name, double height, double weight) {
         this.name = name;
@@ -19,6 +19,14 @@ public class Member {
 
     public String getName() {
         return name;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
+
+    public double getHeight() {
+        return height;
     }
 
 
@@ -52,9 +60,11 @@ public class Member {
         }
     }
 
+
     public void addDistance(int distance) {
         runDistance.add(distance);
     }
+
 
     public int getTotalDistance() {
         int total = 0;

@@ -3,14 +3,12 @@
 ###
 - This application will
 allow people to register a **Gym Membership** and encourage people
-to work out by showing their **InBody Information** such as bmi and lbm.
+to work out by showing their **InBody Information** such as bmi.
 
 - For registering a gym membership, a client will be prompted to enter their 
-*name, date of birth,* and *contact number*.
-
-  Then, the clients will be prompted to enter their *age, height*, and *weight*. With those information, 
+*name, height*, and *weight*. With those information, 
 it will provide their BMI. Then clients will also
- know if their BMI is normal compared to average members in the gym. Also, there will be some advice depending 
+ know whether BMI score is in average or not. Also, there will be some advice depending 
 on their InBody score.
 
 - This application is targeted to people who are trying to work out and want to
@@ -22,7 +20,7 @@ recommended diet and work-out routine will motivate their work-out journey even 
 The part where they can compete with their run-distance will give more fun and competition between gym members.  
 
 ## "User stories"
-- As a user, I want to be able to add a infinite amount of member's information to the gym.
+- As a user, I want to be able to add an infinite amount of member's information to the gym.
 - As a user, I want to be able to add a "run-distance" to "run-distance" of gym members.
 - As a user, I want to see my place for "run-distance" among the gym members.
 - As a user, I want to be able to see my BMI score.

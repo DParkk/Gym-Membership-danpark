@@ -39,10 +39,6 @@ public class GymApp {
 
         for (Member member : memberList) {
             int distance = getDist(member);
-
-
-
-
             if (distance == 0) {
                 System.out.println("Hope to see you again!");
                 System.exit(0);
