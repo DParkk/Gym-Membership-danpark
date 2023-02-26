@@ -62,6 +62,7 @@ public class Member {
 
 
     public void addDistance(int distance) {
+
         runDistance.add(distance);
     }
 
