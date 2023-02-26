@@ -5,25 +5,21 @@ import model.Member;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+// Gym registration application
 public class GymApp {
-
-
     private Scanner input;
-
     ArrayList<Member> memberList = new ArrayList<>();
 
-
+    // EFFECTS: runs the Gym application
     public GymApp() {
         runApp();
     }
 
-
+    // MODIFIES: this
+    // EFFECTS: processes user command. Print out all the users' run distance.
     public void runApp() {
-
         input = new Scanner(System.in);
-
         boolean condition = true;
-
         while (condition) {
 
             System.out.println("Hi, do you want to register? (y/n)");
@@ -36,25 +32,23 @@ public class GymApp {
                 condition = false;
             }
         }
-
         for (Member member : memberList) {
             int distance = getDist(member);
             if (distance == 0) {
                 System.out.println("Hope to see you again!");
                 System.exit(0);
-
             }
-
             member.addDistance(distance);
             System.out.println(member.getName() + " has run " + distance + "km.");
 
         }
-
         for (Member member : memberList) {
             System.out.println(member.getName() + " has a running distance of: " + member.getTotalDistance() + "km.");
         }
     }
 
+    // MODIFIES: this
+    // EFFECTS: processes user input.
     private void memberRegister() {
         System.out.println("Enter your Name: ");
         String name = input.nextLine();
@@ -69,16 +63,17 @@ public class GymApp {
 
         memberList.add(member);
 
-        System.out.println("Your BMI score is " + member.bmiConverter());
+        System.out.println("\n" + "Your BMI score is " + member.bmiConverter());
 
         member.adviser();
 
-        System.out.println("Keep Grinding!");
+        System.out.println("Keep Grinding!" + "\n");
         input.nextLine();
     }
 
+    // MODIFIES: this
+    // EFFECTS: prompt user to enter their run distance or quit the program.
     private int getDist(Member member) {
-
         System.out.println(member.getName() + " please enter your run distance(km): ");
         System.out.println("(To quit, enter '0')");
         return input.nextInt();
