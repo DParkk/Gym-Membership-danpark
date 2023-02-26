@@ -4,16 +4,22 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import java.util.List;
+
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class MemberTest {
     private Member sampleMember;
+    private Member sampleMember1;
+    private Member sampleMember2;
+    private Member sampleMember3;
 
     @BeforeEach
      void runBefore() {
         sampleMember = new Member("Daniel",178,70);
+        sampleMember1 = new Member("Paul", 180, 40);
+        sampleMember2 = new Member("Tom", 165, 120);
+        sampleMember3 = new Member("Jack", 178, 85);
     }
 
     @Test
@@ -34,6 +40,10 @@ class MemberTest {
     @Test
     void adviserTest() {
         sampleMember.adviser();
+        sampleMember1.adviser();
+        sampleMember2.adviser();
+        sampleMember3.adviser();
+
 
     }
 
