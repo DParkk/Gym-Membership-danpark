@@ -44,10 +44,10 @@ public class Member {
 
     }
 
-    public void adviser() {
+    public boolean adviser() {
 
         if (bmiConverter() < 18.5) {
-            System.out.println("You are within the underweight range..");
+            System.out.println("You are within the underweight range.");
 
         } else if (bmiConverter() <= 24.9) {
             System.out.println("You are within the Healthy Weight range.");
@@ -58,6 +58,7 @@ public class Member {
         } else {
             System.out.println("You are within the obese range.");
         }
+        return true;
     }
 
 

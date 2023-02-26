@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class MemberTest {
     private Member sampleMember;
@@ -39,10 +40,11 @@ class MemberTest {
     }
     @Test
     void adviserTest() {
-        sampleMember.adviser();
-        sampleMember1.adviser();
-        sampleMember2.adviser();
-        sampleMember3.adviser();
+        assertTrue(sampleMember.adviser());
+        assertTrue(sampleMember1.adviser());
+        assertTrue(sampleMember2.adviser());
+        assertTrue(sampleMember3.adviser());
+
 
 
     }
