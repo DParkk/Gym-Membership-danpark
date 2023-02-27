@@ -10,6 +10,7 @@ to work out by showing their **InBody Information** such as bmi.
 it will provide their BMI. Then clients will also
  know whether BMI score is in average or not. Also, there will be some advice depending 
 on their InBody score.
+- After entering their running distance, they will be able to check the runner with the most run-distance in the gym.
 
 - This application is targeted to people who are trying to work out and want to
 see their work-out progress with InBody information.
@@ -21,8 +22,7 @@ The part where they can compete with their run-distance will give more fun and c
 
 ## "User stories"
 - As a user, I want to be able to add an infinite amount of member's information to the gym.
-- As a user, I want to be able to add a "run-distance" to "run-distance" of gym members.
-- As a user, I want to see my place for "run-distance" among the gym members.
+- As a user, I want to see the first place for "run-distance" among the gym members.
 - As a user, I want to be able to see my BMI score.
 - As a user, I want to be able to check if my BMI score is in the average or not.
-- As a user, I want to see an interface where I can input my personal information for a membership register.
+- As a user, I want to see an interface where I can input my personal information for a gym registration.

@@ -99,4 +99,7 @@ public class Member {
         }
         return total;
     }
+
+
+
 }

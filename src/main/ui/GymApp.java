@@ -17,7 +17,7 @@ public class GymApp {
 
     // MODIFIES: this
     // EFFECTS: processes user command. Print out all the users' run distance.
-    public void runApp() {
+    private void runApp() {
         input = new Scanner(System.in);
         boolean condition = true;
         while (condition) {
@@ -39,12 +39,15 @@ public class GymApp {
                 System.exit(0);
             }
             member.addDistance(distance);
-            System.out.println(member.getName() + " has run " + distance + "km.");
+            System.out.println(member.getName() + " has run " + distance + "km." + "\n");
 
         }
         for (Member member : memberList) {
             System.out.println(member.getName() + " has a running distance of: " + member.getTotalDistance() + "km.");
         }
+
+        rankRunners();
+
     }
 
     // MODIFIES: this
@@ -78,4 +81,23 @@ public class GymApp {
         System.out.println("(To quit, enter '0')");
         return input.nextInt();
     }
+
+    // MODIFIES: this
+    // EFFECTS: Allows user to the check who ran the most distance in the gym.
+    private void rankRunners() {
+
+        Member mostDist = memberList.get(0);
+
+        for (int i = 1; i < memberList.size(); i++) {
+            if (memberList.get(i).getTotalDistance() > mostDist.getTotalDistance()) {
+                mostDist = memberList.get(i);
+            }
+        }
+        System.out.println("\n" + "The first place goes to " + mostDist.getName() + ", Congratulation!");
+
+
+    }
+
+
 }
+
