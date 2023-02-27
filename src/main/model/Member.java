@@ -35,7 +35,6 @@ public class Member {
     }
 
     /*
-     * MODIFIES: this
      * EFFECTS: calculates members' bmi with given height and weight.
      */
     public double bmiCalculator() {
@@ -44,7 +43,6 @@ public class Member {
 
 
     /*
-     * MODIFIES: this
      * EFFECTS: make a value from bmiCalculator() to 3 sig-figs.
      */
     public double bmiConverter() {
@@ -58,7 +56,6 @@ public class Member {
     }
 
     /*
-     * MODIFIES: this
      * EFFECTS: give an information of members' bmi using a value from bmiConverter().
      */
     public boolean adviser() {
@@ -87,7 +84,6 @@ public class Member {
     }
 
     /*
-     * MODIFIES: this
      * EFFECTS: adds up the all the distance in runDistance to total until there is no more,
      *          then return total.
      */
