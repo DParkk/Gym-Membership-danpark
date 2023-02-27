@@ -21,7 +21,8 @@ recommended diet and work-out routine will motivate their work-out journey even 
 The part where they can compete with their run-distance will give more fun and competition between gym members.  
 
 ## "User stories"
-- As a user, I want to be able to add an infinite amount of member's information to the gym.
+- As a user, I want to be able to add an infinite amount of member's information to the member list.
+- As a user, I want to see all the gym members' run distance.
 - As a user, I want to see the first place for "run-distance" among the gym members.
 - As a user, I want to be able to see my BMI score.
 - As a user, I want to be able to check if my BMI score is in the average or not.

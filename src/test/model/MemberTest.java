@@ -38,6 +38,7 @@ class MemberTest {
     void bmiConvertTest() {
         assertEquals(22.1, sampleMember.bmiConverter());
     }
+
     @Test
     void adviserTest() {
         assertTrue(sampleMember.adviser());
