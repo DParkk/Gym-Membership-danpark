@@ -22,7 +22,8 @@ public class GymApp {
         boolean condition = true;
         while (condition) {
 
-            System.out.println("Hi, do you want to join our gym? (y/n)");
+            System.out.println("Hi, do you want to join our gym? (y/n)" + "\n"
+                    + "(enter 'n' for your running distance)");
             String checkIn = input.nextLine();
 
             if (checkIn.equals("y")) {
