@@ -16,7 +16,7 @@ public class GymApp {
     }
 
     // MODIFIES: this
-    // EFFECTS: processes user command. Print out all the users' run distance.
+    // EFFECTS: processes user command.
     private void runApp() {
         input = new Scanner(System.in);
         boolean condition = true;
@@ -32,6 +32,12 @@ public class GymApp {
                 condition = false;
             }
         }
+        memberRun();
+    }
+
+    // MODIFIES: this
+    // EFFECTS: Print out all the users' run distance.
+    private void memberRun() {
         for (Member member : memberList) {
             int distance = getDist(member);
             if (distance == 0) {
@@ -42,14 +48,14 @@ public class GymApp {
             System.out.println(member.getName() + " has run " + distance + "km." + "\n");
         }
         for (Member member : memberList) {
-            System.out.println(member.getName() + " has a running distance of: "
-                    + member.getTotalDistance() + "km.");
+            System.out.println(member.getName() + " has a running distance of: " + member.getTotalDistance() + "km.");
         }
         rankRunners();
     }
 
+
     // MODIFIES: this
-    // EFFECTS: processes user input.
+    // EFFECTS: processes user input. Let users know their BMI score based on their weight & height input.
     private void memberRegister() {
         System.out.println("Enter your Name: ");
         String name = input.nextLine();
@@ -73,7 +79,7 @@ public class GymApp {
     }
 
     // MODIFIES: this
-    // EFFECTS: prompt user to enter their run distance or quit the program.
+    // EFFECTS: Prompts user to enter their run distance or quit the program. Allows user to quit the program.
     private int getDist(Member member) {
         System.out.println(member.getName() + " please enter your run distance(km): ");
         System.out.println("(To quit, enter '0')");
@@ -83,17 +89,29 @@ public class GymApp {
     // MODIFIES: this
     // EFFECTS: Allows user to the check who ran the most distance in the gym.
     private void rankRunners() {
-
         Member mostDist = memberList.get(0);
+        boolean tie = false;
 
         for (int i = 1; i < memberList.size(); i++) {
-            if (memberList.get(i).getTotalDistance() > mostDist.getTotalDistance()) {
-                mostDist = memberList.get(i);
 
+            Member current = memberList.get(i);
+
+            if (current.getTotalDistance() > mostDist.getTotalDistance()) {
+                mostDist = current;
+                tie = false;
+
+            } else if (current.getTotalDistance() == mostDist.getTotalDistance()) {
+                tie = true;
             }
-            System.out.println("\n" + "The first place goes to " + mostDist.getName() + ", Congratulation!");
+        }
+        if (tie) {
+            System.out.println("\n"
+                    + "There is a tie for the first place!");
 
+        } else {
+            System.out.println("\n" + "The first place goes to " + mostDist.getName() + ", Congratulation!");
         }
     }
 }
+
 
