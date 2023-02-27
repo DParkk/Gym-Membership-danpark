@@ -86,7 +86,7 @@ public class GymApp {
         return input.nextInt();
     }
 
-    // MODIFIES: this
+
     // EFFECTS: Allows user to the check who ran the most distance in the gym.
     private void rankRunners() {
         Member mostDist = memberList.get(0);
