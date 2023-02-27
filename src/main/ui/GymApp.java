@@ -39,11 +39,10 @@ public class GymApp {
                 System.exit(0);
             }
             member.addDistance(distance);
-            System.out.println(member.getName() + " has run " + distance + "km." + "\n");
+            System.out.println(member.getName() + " has run " + distance + "km.");
+            System.out.println(member.getName() + " has a running distance of: "
+                                 + member.getTotalDistance() + "km." + "\n");
 
-        }
-        for (Member member : memberList) {
-            System.out.println(member.getName() + " has a running distance of: " + member.getTotalDistance() + "km.");
         }
 
         rankRunners();
@@ -94,7 +93,6 @@ public class GymApp {
             }
         }
         System.out.println("\n" + "The first place goes to " + mostDist.getName() + ", Congratulation!");
-
 
     }
 
