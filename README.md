@@ -22,8 +22,9 @@ The part where they can compete with their run-distance will give more fun and c
 
 ## "User stories"
 - As a user, I want to be able to add an infinite amount of member's information to the member list.
+- As a user, I want to see an interface where I can input my personal information for a gym registration.
 - As a user, I want to see all the gym members' run distance.
 - As a user, I want to see the first place for "run-distance" among the gym members.
 - As a user, I want to be able to see my BMI score.
 - As a user, I want to be able to check if my BMI score is in the average or not.
-- As a user, I want to see an interface where I can input my personal information for a gym registration.
+

@@ -78,7 +78,7 @@ public class Member {
     }
 
     /*
-     * REQUIRES: distance > 0
+     * REQUIRES: distance >= 0
      * MODIFIES: this
      * EFFECTS: takes a distance as an argument and add it to runDistance.
      */
