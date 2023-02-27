@@ -42,11 +42,9 @@ public class GymApp {
             System.out.println(member.getName() + " has run " + distance + "km.");
             System.out.println(member.getName() + " has a running distance of: "
                                  + member.getTotalDistance() + "km." + "\n");
-
         }
 
         rankRunners();
-
     }
 
     // MODIFIES: this
@@ -90,12 +88,14 @@ public class GymApp {
         for (int i = 1; i < memberList.size(); i++) {
             if (memberList.get(i).getTotalDistance() > mostDist.getTotalDistance()) {
                 mostDist = memberList.get(i);
+                System.out.println("\n" + "The first place goes to " + mostDist.getName() + ", Congratulation!");
+
+            } else if (memberList.get(i).getTotalDistance() == mostDist.getTotalDistance()) {
+                System.out.println("\n" + "Everyone has the same running distance. Great work you all!");
+
             }
         }
-        System.out.println("\n" + "The first place goes to " + mostDist.getName() + ", Congratulation!");
 
     }
-
-
 }
 
