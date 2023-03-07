@@ -46,8 +46,10 @@ public class GymTest {
         Member mem1 = new Member("Daniel", 180, 80);
         Member mem2 = new Member("Paul", 170, 70);
         Member mem3 = new Member("Jack", 160, 60);
+        Member mem4 = new Member("Jason", 185,85);
         mem1.addDistance(12);
         mem2.addDistance(14);
+        mem4.addDistance(10);
 
         try {
             Member mem = gym1.getMostDistantRunner().getMostDist();
@@ -58,6 +60,7 @@ public class GymTest {
 
         gym1.addMember(mem1);
         gym1.addMember(mem2);
+        gym1.addMember(mem4);
 
         try {
             assertEquals(mem2, gym1.getMostDistantRunner().getMostDist());
