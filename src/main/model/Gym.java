@@ -27,7 +27,7 @@ public class Gym {
 
 
     // MODIFIES: this
-    // EFFECT: get the runner with the most run-distance or get tied runners. If there's no error throw exception.
+    // EFFECT: get the runner with the most run-distance or get tied runners. If there's no runner throw exception.
 
     public Result getMostDistantRunner() throws Exception {
         Member mostDist;

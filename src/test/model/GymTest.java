@@ -3,8 +3,9 @@ package model;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import java.util.ArrayList;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class GymTest {
 
@@ -41,17 +42,28 @@ public class GymTest {
     }
 
     @Test
-    void getMostDistantRunnerTest() throws Exception {
+    void getMostDistantRunnerTest() {
         Member mem1 = new Member("Daniel", 180, 80);
         Member mem2 = new Member("Paul", 170, 70);
         Member mem3 = new Member("Jack", 160, 60);
         mem1.addDistance(12);
         mem2.addDistance(14);
 
+        try {
+            Member mem = gym1.getMostDistantRunner().getMostDist();
+            fail();
+        } catch (Exception e) {
+            // ignore; test passed
+        }
+
         gym1.addMember(mem1);
         gym1.addMember(mem2);
 
-        assertEquals(mem2, gym1.getMostDistantRunner().getMostDist());
+        try {
+            assertEquals(mem2, gym1.getMostDistantRunner().getMostDist());
+        } catch (Exception e) {
+            fail("Should've passed without exception");
+        }
 
         gym1.getMemberList().remove(0);
 
@@ -59,11 +71,13 @@ public class GymTest {
 
         mem3.addDistance(14);
 
-        assertTrue(gym1.getMostDistantRunner().isTie());
-
-
-
+        try {
+            assertTrue(gym1.getMostDistantRunner().isTie());
+        } catch (Exception e) {
+            fail("Should've passed without exception");
+        }
 
     }
+
 
 }
