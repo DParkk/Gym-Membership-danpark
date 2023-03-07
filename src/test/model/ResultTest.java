@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class ResultTest {
 
@@ -20,7 +21,7 @@ public class ResultTest {
     void constructorTest() {
 
 
-        assertEquals(false,result.isTie());
+        assertFalse(result.isTie());
         assertEquals("Daniel", result.getMostDist().getName());
         assertEquals(180, result.getMostDist().getHeight());
         assertEquals(80, result.getMostDist().getWeight());
