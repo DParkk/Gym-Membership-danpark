@@ -40,4 +40,17 @@ public class GymTest {
         assertEquals("Daniel", gym1.getGymName());
     }
 
+    @Test
+    void getMostDistantRunnerTest() throws Exception {
+        Member mem1 = new Member("Daniel", 180, 80);
+        Member mem2 = new Member("Paul", 170, 70);
+        mem1.addDistance(12);
+        mem2.addDistance(14);
+
+        gym1.addMember(mem1);
+        gym1.addMember(mem2);
+
+        assertEquals(mem2, gym1.getMostDistantRunner().getMostDist());
+    }
+
 }

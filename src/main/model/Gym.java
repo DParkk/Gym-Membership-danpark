@@ -51,6 +51,7 @@ public class Gym {
         }
 
         Result r = new Result(tie, mostDist);
+
         return r;
     }
 
