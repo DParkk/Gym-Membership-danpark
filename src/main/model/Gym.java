@@ -1,34 +1,42 @@
 package model;
 
 import java.util.ArrayList;
+// TODO: add documentation
 
 public class Gym {
     private ArrayList<Member> memberList;
+    private String gymName;
 
+
+    // EFFECTS: constructs a gym with given gym name and contain member list.
     public Gym() {
         memberList = new ArrayList<>();
+        gymName = "Daniel";
     }
+    // MODIFIES: this
+    // EFFECT: add member to Gym
 
     public void addMember(Member member) {
         memberList.add(member);
     }
 
-    public void addDistance(Member member, int distance) {
-        member.addDistance(distance);
-    }
 
     public ArrayList<Member> getMemberList() {
         return memberList;
     }
 
-    public boolean checkDistanceZero(int distance) {
-        return distance == 0;
-    }
 
-    private Member rankRunners() {
-        Member mostDist = memberList.get(0);
+    // MODIFIES: this
+    // EFFECT: get the runner with the most run-distance or get tied runners. If there's no error throw exception.
+
+    public Result getMostDistantRunner() throws Exception {
+        Member mostDist;
+        if (memberList.size() == 0) {
+            throw new Exception();
+        } else {
+            mostDist = memberList.get(0);
+        }
         boolean tie = false;
-
         for (int i = 1; i < memberList.size(); i++) {
 
             Member current = memberList.get(i);
@@ -42,12 +50,15 @@ public class Gym {
             }
         }
 
-        if (tie) {
-            return null;
-        } else {
-            return mostDist;
-        }
+        Result r = new Result(tie, mostDist);
+        return r;
     }
 
+    public void setName(String newName) {
+        gymName = newName;
+    }
 
+    public String getGymName() {
+        return gymName;
+    }
 }

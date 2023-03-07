@@ -41,10 +41,11 @@ class MemberTest {
 
     @Test
     void adviserTest() {
-        assertTrue(sampleMember.adviser());
-        assertTrue(sampleMember1.adviser());
-        assertTrue(sampleMember2.adviser());
-        assertTrue(sampleMember3.adviser());
+        assertEquals(1, sampleMember.adviser());
+        assertEquals(0, sampleMember1.adviser());
+        assertEquals(3, sampleMember2.adviser());
+        assertEquals(2, sampleMember3.adviser());
+
 
 
 

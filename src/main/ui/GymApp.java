@@ -2,6 +2,7 @@ package ui;
 
 import model.Gym;
 import model.Member;
+import model.Result;
 
 import java.util.Scanner;
 
@@ -24,12 +25,20 @@ public class GymApp {
         boolean condition = true;
         while (condition) {
 
-            System.out.println("Hi, do you want to join our gym? (y/n)" + "\n"
+            System.out.println("Hi, do you want to join " + gym.getGymName() + "'s gym? (y/n)" + "\n"
                     + "(enter 'n' for your running distance)");
+            System.out.println("Enter 'set new name' to set a new name" + "\n");
             String checkIn = input.nextLine();
 
             if (checkIn.equals("y")) {
                 memberRegister();
+
+            } else if (checkIn.equals("set new name")) {
+                // take in user input
+                System.out.println("input a new name:");
+                String newName = input.next();
+                // call gym.setName()
+                gym.setName(newName);
 
             } else {
                 condition = false;
@@ -75,7 +84,16 @@ public class GymApp {
 
         System.out.println("\n" + "Your BMI score is " + member.bmiConverter());
 
-        member.adviser();
+        int result = member.adviser();
+        if (result == 0) {
+            System.out.println("You are within the underweight range.");
+        } else if (result == 1) {
+            System.out.println("You are within the Healthy Weight range.");
+        } else if (result == 2) {
+            System.out.println("You are within the overweight range.");
+        } else {
+            System.out.println("You are within the obese range.");
+        }
 
         System.out.println("Keep Grinding!" + "\n");
         input.nextLine();
@@ -92,28 +110,26 @@ public class GymApp {
 
     // EFFECTS: Allows user to the check who ran the most distance in the gym.
     private void rankRunners() {
-        Member mostDist = gym.getMemberList().get(0);
-        boolean tie = false;
 
-        for (int i = 1; i < gym.getMemberList().size(); i++) {
+//        boolean tie = false;
+        Result res = null;
+        try {
+            res = gym.getMostDistantRunner();
+            if (res.isTie()) {
+                System.out.println("\n"
+                        + "There is a tie for the first place!");
 
-            Member current = gym.getMemberList().get(i);
-
-            if (current.getTotalDistance() > mostDist.getTotalDistance()) {
-                mostDist = current;
-                tie = false;
-
-            } else if (current.getTotalDistance() == mostDist.getTotalDistance()) {
-                tie = true;
+            } else {
+                System.out.println("\n" + "The first place goes to " + res.getMostDist().getName() + ", Congratulation!");
             }
+        } catch (Exception e) {
+            System.out.println("There are no runners!");
         }
-        if (tie) {
-            System.out.println("\n"
-                    + "There is a tie for the first place!");
 
-        } else {
-            System.out.println("\n" + "The first place goes to " + mostDist.getName() + ", Congratulation!");
-        }
+        // throw exception -> catch expcetion print: there are no members
+        //
+
+
     }
 }
 

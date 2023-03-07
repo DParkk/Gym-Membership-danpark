@@ -58,20 +58,24 @@ public class Member {
     /*
      * EFFECTS: give an information of members' bmi using a value from bmiConverter().
      */
-    public boolean adviser() {
+    public int adviser() {
         if (bmiConverter() < 18.5) {
-            System.out.println("You are within the underweight range.");
+            return 0;
+//            System.out.println("You are within the underweight range."); //
 
         } else if (bmiConverter() <= 24.9) {
-            System.out.println("You are within the Healthy Weight range.");
+            return 1;
+//            System.out.println("You are within the Healthy Weight range.");
 
         } else if ((bmiConverter() <= 29.9)) {
-            System.out.println("You are within the overweight range.");
+            return 2;
+//            System.out.println("You are within the overweight range.");
 
         } else {
-            System.out.println("You are within the obese range.");
+            return 3;
+//            System.out.println("You are within the obese range.");
         }
-        return true;
+//        return true;
     }
 
     /*
