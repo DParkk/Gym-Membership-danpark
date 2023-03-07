@@ -1,7 +1,7 @@
 package model;
 
 import java.util.ArrayList;
-// TODO: add documentation
+
 
 public class Gym {
     private ArrayList<Member> memberList;
