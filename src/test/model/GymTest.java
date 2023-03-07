@@ -44,6 +44,7 @@ public class GymTest {
     void getMostDistantRunnerTest() throws Exception {
         Member mem1 = new Member("Daniel", 180, 80);
         Member mem2 = new Member("Paul", 170, 70);
+        Member mem3 = new Member("Jack", 160, 60);
         mem1.addDistance(12);
         mem2.addDistance(14);
 
@@ -51,6 +52,18 @@ public class GymTest {
         gym1.addMember(mem2);
 
         assertEquals(mem2, gym1.getMostDistantRunner().getMostDist());
+
+        gym1.getMemberList().remove(0);
+
+        gym1.addMember(mem3);
+
+        mem3.addDistance(14);
+
+        assertTrue(gym1.getMostDistantRunner().isTie());
+
+
+
+
     }
 
 }
