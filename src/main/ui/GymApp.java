@@ -1,24 +1,26 @@
 package ui;
 
+import model.Gym;
 import model.Member;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 // Gym registration application
 public class GymApp {
     private Scanner input;
-    ArrayList<Member> memberList = new ArrayList<>();
+    private Gym gym;
 
     // EFFECTS: runs the Gym application
     public GymApp() {
+        input = new Scanner(System.in);
+        gym = new Gym();
         runApp();
     }
 
     // MODIFIES: this
     // EFFECTS: processes user command.
     private void runApp() {
-        input = new Scanner(System.in);
+
         boolean condition = true;
         while (condition) {
 
@@ -39,7 +41,7 @@ public class GymApp {
     // MODIFIES: this
     // EFFECTS: Print out all the users' run distance.
     private void memberRun() {
-        for (Member member : memberList) {
+        for (Member member : gym.getMemberList()) {
             int distance = getDist(member);
             if (distance == 0) {
                 System.out.println("Hope to see you again!");
@@ -48,7 +50,7 @@ public class GymApp {
             member.addDistance(distance);
             System.out.println(member.getName() + " has run " + distance + "km." + "\n");
         }
-        for (Member member : memberList) {
+        for (Member member : gym.getMemberList()) {
             System.out.println(member.getName() + " has a running distance of: " + member.getTotalDistance() + "km.");
         }
         rankRunners();
@@ -69,7 +71,7 @@ public class GymApp {
 
         Member member = new Member(name, height, weight);
 
-        memberList.add(member);
+        gym.addMember(member);
 
         System.out.println("\n" + "Your BMI score is " + member.bmiConverter());
 
@@ -90,12 +92,12 @@ public class GymApp {
 
     // EFFECTS: Allows user to the check who ran the most distance in the gym.
     private void rankRunners() {
-        Member mostDist = memberList.get(0);
+        Member mostDist = gym.getMemberList().get(0);
         boolean tie = false;
 
-        for (int i = 1; i < memberList.size(); i++) {
+        for (int i = 1; i < gym.getMemberList().size(); i++) {
 
-            Member current = memberList.get(i);
+            Member current = gym.getMemberList().get(i);
 
             if (current.getTotalDistance() > mostDist.getTotalDistance()) {
                 mostDist = current;
