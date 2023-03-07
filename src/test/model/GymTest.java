@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class GymTest {
 
@@ -32,5 +33,11 @@ public class GymTest {
 
     }
 
+    @Test
+    void setNameTest() {
+       gym1.setName("Daniel");
+
+        assertEquals("Daniel", gym1.getGymName());
+    }
 
 }
