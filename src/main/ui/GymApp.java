@@ -116,11 +116,11 @@ public class GymApp {
         try {
             res = gym.getMostDistantRunner();
             if (res.isTie()) {
-                System.out.println("\n"
-                        + "There is a tie for the first place!");
+                System.out.println("\n"  + "There is a tie for the first place!");
 
             } else {
-                System.out.println("\n" + "The first place goes to " + res.getMostDist().getName() + ", Congratulation!");
+                System.out.println("\n" + "The first place goes to " + res.getMostDist().getName()
+                        + ", Congratulation!");
             }
         } catch (Exception e) {
             System.out.println("There are no runners!");
