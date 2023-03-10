@@ -19,7 +19,7 @@ public class GymApp {
     private JsonReader jsonReader;
 
     // EFFECTS: runs the Gym application
-    public GymApp() {
+    public GymApp() throws FileNotFoundException {
         input = new Scanner(System.in);
         gym = new Gym();
         jsonWriter = new JsonWriter(JSON_STORE);

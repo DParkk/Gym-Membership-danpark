@@ -1,7 +1,15 @@
 {
     "thingies": [
-        {"name": "Daniel"},
-        {"name": "Paul"}
+        {
+            "name": "Daniel",
+            "weight": 80,
+            "height": 180
+        },
+        {
+            "name": "Paul",
+            "weight": 70,
+            "height": 170
+        }
     ],
     "name": "Daniel"
 }
