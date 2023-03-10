@@ -69,26 +69,29 @@ public class GymTest {
             fail("Should've passed without exception");
         }
 
-        gym1.getMemberList().remove(0);
+    }
 
-        gym1.addMember(mem3);
+    @Test
+    void getTieRunnerTest() {
+        Member mem1 = new Member("Daniel", 180, 80);
+        Member mem2 = new Member("Paul", 170, 70);
 
-        mem3.addDistance(14);
+        gym1.addMember(mem1);
+        gym1.addMember(mem2);
+
+        mem1.addDistance(14);
+        mem2.addDistance(14);
 
         try {
             assertTrue(gym1.getMostDistantRunner().isTie());
         } catch (Exception e) {
-            fail("Should've passed without exception");
+            throw new RuntimeException(e);
         }
-
     }
 
 
-
-
-
-    @Test
-    void numThingiesTest() {
+        @Test
+        void numThingiesTest() {
         Member mem1 = new Member("Daniel", 180, 80);
         Member mem2 = new Member("Paul", 170, 70);
         Member mem3 = new Member("Jack", 160, 60);
