@@ -30,11 +30,9 @@ public class GymApp {
     // MODIFIES: this
     // EFFECTS: processes user command.
 
-    @SuppressWarnings("checkstyle:MethodLength")
     private void runApp() {
 
-        boolean condition = true;
-        while (condition) {
+        while (true) {
 
             System.out.println("\n" + "Hi, do you want to join " + gym.getGymName() + "'s gym?" + "\n"
                     + "'y' to continue " + "\n" + "'n' for your running distance" + "\n" + "'s' to save your info"
@@ -62,7 +60,7 @@ public class GymApp {
                 gym.printMember();
 
             } else {
-                condition = false;
+                break;
             }
         }
         memberRun();
