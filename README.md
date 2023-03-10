@@ -30,3 +30,6 @@ The part where they can compete with their run-distance will give more fun and c
 - As a user, I want to be able to save my member's information to file (if I so choose)
 - As a user, I want to be able to be able to load my member's information from file (if I so choose)
 
+
+### Citation
+- Referred to "JsonSerializationDemo" to implement the JSON data.
