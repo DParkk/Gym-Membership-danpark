@@ -20,7 +20,7 @@ public class JsonReader {
         this.source = source;
     }
 
-    // EFFECTS: reads workroom from file and returns it;
+    // EFFECTS: reads Gym from file and returns it;
     // throws IOException if an error occurs reading data from file
     public Gym read() throws IOException {
         String jsonData = readFile(source);
@@ -39,7 +39,7 @@ public class JsonReader {
         return contentBuilder.toString();
     }
 
-    // EFFECTS: parses workroom from JSON object and returns it
+    // EFFECTS: parses Gym from JSON object and returns it
     private Gym parseGym(JSONObject jsonObject) {
         Gym wr = new Gym();
         addThingies(wr, jsonObject);
@@ -47,7 +47,7 @@ public class JsonReader {
     }
 
     // MODIFIES: wr
-    // EFFECTS: parses thingies from JSON object and adds them to workroom
+    // EFFECTS: parses thingies from JSON object and adds them to Gym
     private void addThingies(Gym wr, JSONObject jsonObject) {
         JSONArray jsonArray = jsonObject.getJSONArray("thingies");
         for (Object json : jsonArray) {
@@ -57,7 +57,7 @@ public class JsonReader {
     }
 
     // MODIFIES: wr
-    // EFFECTS: parses thingy from JSON object and adds it to workroom
+    // EFFECTS: parses thingy from JSON object and adds it to Gym
     private void addThingy(Gym wr, JSONObject jsonObject) {
         String name = jsonObject.getString("name");
         Integer height = jsonObject.getInt("height");

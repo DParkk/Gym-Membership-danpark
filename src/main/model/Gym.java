@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-
+// Gym Registration application
 public class Gym implements Writable {
     private ArrayList<Member> memberList;
     private String gymName;
@@ -90,7 +90,7 @@ public class Gym implements Writable {
         return json;
     }
 
-    // EFFECTS: returns things in this workroom as a JSON array
+    // EFFECTS: returns things in this Gym as a JSON array
     private JSONArray thingiesToJson() {
         JSONArray jsonArray = new JSONArray();
 
