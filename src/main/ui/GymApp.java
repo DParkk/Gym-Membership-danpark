@@ -29,14 +29,15 @@ public class GymApp {
 
     // MODIFIES: this
     // EFFECTS: processes user command.
+
+    @SuppressWarnings("checkstyle:MethodLength")
     private void runApp() {
 
         boolean condition = true;
         while (condition) {
 
             System.out.println("\n" + "Hi, do you want to join " + gym.getGymName() + "'s gym?" + "\n"
-                    + "'y' to continue " + "\n"
-                    + "'n' for your running distance" + "\n" + "'s' to save your information to file"
+                    + "'y' to continue " + "\n" + "'n' for your running distance" + "\n" + "'s' to save your info"
                     + "\n" + "'l' to load your information from file" + "\n" + "'p' to print out current members.");
             System.out.println("Enter 'set new name' to set a new name" + "\n");
             String checkIn = input.nextLine();
