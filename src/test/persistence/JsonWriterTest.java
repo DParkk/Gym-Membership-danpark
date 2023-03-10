@@ -37,7 +37,7 @@ class JsonWriterTest extends JsonTest {
 
             JsonReader reader = new JsonReader("./data/testWriterEmptyWorkroom.json");
             wr = reader.read();
-            assertEquals("My work room", wr.getGymName());
+            assertEquals("Daniel", wr.getGymName());
             assertEquals(0, wr.getMemberList());
         } catch (IOException e) {
             fail("Exception should not have been thrown");
@@ -57,7 +57,7 @@ class JsonWriterTest extends JsonTest {
 
             JsonReader reader = new JsonReader("./data/testWriterGeneralWorkroom.json");
             wr = reader.read();
-            assertEquals("My work room", wr.getGymName());
+            assertEquals("Daniel", wr.getGymName());
             List<Member> thingies = wr.getMemberList();
             assertEquals(2, thingies.size());
 

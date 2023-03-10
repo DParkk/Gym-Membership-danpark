@@ -3,18 +3,27 @@ package ui;
 import model.Gym;
 import model.Member;
 import model.Result;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 // Gym registration application
 public class GymApp {
+    private static final String JSON_STORE = "./data/workroom.json";
     private Scanner input;
     private Gym gym;
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
 
     // EFFECTS: runs the Gym application
     public GymApp() {
         input = new Scanner(System.in);
         gym = new Gym();
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
         runApp();
     }
 
@@ -25,8 +34,10 @@ public class GymApp {
         boolean condition = true;
         while (condition) {
 
-            System.out.println("Hi, do you want to join " + gym.getGymName() + "'s gym? (y/n)" + "\n"
-                    + "(enter 'n' for your running distance)");
+            System.out.println("\n" + "Hi, do you want to join " + gym.getGymName() + "'s gym?" + "\n"
+                    + "'y' to continue " + "\n"
+                    + "'n' for your running distance" + "\n" + "'s' to save your information to file"
+                    + "\n" + "'l' to load your information from file" + "\n" + "'p' to print out current members.");
             System.out.println("Enter 'set new name' to set a new name" + "\n");
             String checkIn = input.nextLine();
 
@@ -40,11 +51,21 @@ public class GymApp {
                 // call gym.setName()
                 gym.setName(newName);
 
+            } else if (checkIn.equals("s")) {
+                saveWorkRoom();
+
+            } else if (checkIn.equals("l")) {
+                loadWorkRoom();
+
+            } else if (checkIn.equals("p")) {
+                gym.printMember();
+
             } else {
                 condition = false;
             }
         }
         memberRun();
+
     }
 
     // MODIFIES: this
@@ -96,6 +117,7 @@ public class GymApp {
         }
 
         System.out.println("Keep Grinding!" + "\n");
+
         input.nextLine();
     }
 
@@ -116,7 +138,7 @@ public class GymApp {
         try {
             res = gym.getMostDistantRunner();
             if (res.isTie()) {
-                System.out.println("\n"  + "There is a tie for the first place!");
+                System.out.println("\n" + "There is a tie for the first place!");
 
             } else {
                 System.out.println("\n" + "The first place goes to " + res.getMostDist().getName()
@@ -125,11 +147,35 @@ public class GymApp {
         } catch (Exception e) {
             System.out.println("There are no runners!");
         }
+    }
 
         // throw exception -> catch expcetion print: there are no members
         //
 
 
+        // EFFECTS: saves the workroom to file
+
+    private void saveWorkRoom() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(gym);
+            jsonWriter.close();
+            System.out.println("Saved " + gym.getGymName() + " to " + JSON_STORE + "\n");
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
+    }
+
+        // MODIFIES: this
+        // EFFECTS: loads workroom from file
+
+    private void loadWorkRoom() {
+        try {
+            gym = jsonReader.read();
+            System.out.println("Loaded " + gym.getGymName() + " from " + JSON_STORE + "\n");
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
+        }
     }
 }
 

@@ -2,7 +2,6 @@ package persistence;
 
 import model.Gym;
 import model.Member;
-import model.Result;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -26,7 +25,7 @@ public class JsonReader {
     public Gym read() throws IOException {
         String jsonData = readFile(source);
         JSONObject jsonObject = new JSONObject(jsonData);
-        return parseWorkRoom(jsonObject);
+        return parseGym(jsonObject);
     }
 
     // EFFECTS: reads source file as string and returns it
@@ -41,8 +40,7 @@ public class JsonReader {
     }
 
     // EFFECTS: parses workroom from JSON object and returns it
-    private Gym parseWorkRoom(JSONObject jsonObject) {
-        String name = jsonObject.getString("name");
+    private Gym parseGym(JSONObject jsonObject) {
         Gym wr = new Gym();
         addThingies(wr, jsonObject);
         return wr;
@@ -64,7 +62,6 @@ public class JsonReader {
         String name = jsonObject.getString("name");
         Integer height = jsonObject.getInt("height");
         Integer weight = jsonObject.getInt("weight");
-        //Category category = Category.valueOf(jsonObject.getString("category"));
         Member member = new Member(name, height, weight);
         wr.addMember(member);
     }

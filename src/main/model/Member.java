@@ -107,6 +107,9 @@ public class Member implements Writable {
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
         json.put("name", name);
+        json.put("height", height);
+        json.put("weight", weight);
+
         return json;
     }
 }
