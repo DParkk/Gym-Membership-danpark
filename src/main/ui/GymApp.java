@@ -57,7 +57,7 @@ public class GymApp {
                 loadWorkRoom();
 
             } else if (checkIn.equals("p")) {
-                gym.printMember();
+                printMember();
 
             } else {
                 break;
@@ -174,6 +174,13 @@ public class GymApp {
             System.out.println("Loaded " + gym.getGymName() + " from " + JSON_STORE + "\n");
         } catch (IOException e) {
             System.out.println("Unable to read from file: " + JSON_STORE);
+        }
+    }
+
+    public void printMember() {
+        System.out.println("Current Member: ");
+        for (Member member : gym.getMemberList()) {
+            System.out.println(member.getName());
         }
     }
 }

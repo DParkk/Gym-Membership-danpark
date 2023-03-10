@@ -69,12 +69,7 @@ public class Gym implements Writable {
         return gymName;
     }
 
-    public void printMember() {
-        System.out.println("Current Member: ");
-        for (Member member : memberList) {
-            System.out.println(member.getName());
-        }
-    }
+
 
 
     public int numThingies() {

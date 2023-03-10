@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -80,6 +81,23 @@ public class GymTest {
             fail("Should've passed without exception");
         }
 
+    }
+
+
+
+
+
+    @Test
+    void numThingiesTest() {
+        Member mem1 = new Member("Daniel", 180, 80);
+        Member mem2 = new Member("Paul", 170, 70);
+        Member mem3 = new Member("Jack", 160, 60);
+
+        gym1.addMember(mem1);
+        gym1.addMember(mem2);
+        gym1.addMember(mem3);
+
+        assertEquals(3,gym1.numThingies());
     }
 
 
