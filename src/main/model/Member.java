@@ -3,8 +3,10 @@ package model;
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.util.ArrayList;
+import org.json.JSONObject;
+import persistence.Writable;
 
-public class Member {
+public class Member implements Writable {
     private final String name;
     private final double weight;
     private final double height;
@@ -101,7 +103,10 @@ public class Member {
     }
 
 
-
-
-
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+        return json;
+    }
 }

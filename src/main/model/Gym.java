@@ -1,9 +1,15 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 
-public class Gym {
+public class Gym implements Writable {
     private ArrayList<Member> memberList;
     private String gymName;
 
@@ -21,8 +27,8 @@ public class Gym {
     }
 
 
-    public ArrayList<Member> getMemberList() {
-        return memberList;
+    public List<Member> getMemberList() {
+        return Collections.unmodifiableList(memberList);
     }
 
 
@@ -62,4 +68,28 @@ public class Gym {
     public String getGymName() {
         return gymName;
     }
+
+    public int numThingies() {
+        return memberList.size();
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("name", gymName);
+        json.put("thingies", thingiesToJson());
+        return json;
+    }
+
+    // EFFECTS: returns things in this workroom as a JSON array
+    private JSONArray thingiesToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Member t : memberList) {
+            jsonArray.put(t.toJson());
+        }
+
+        return jsonArray;
+    }
 }
+
