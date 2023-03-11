@@ -39,9 +39,10 @@ class JsonReaderTest extends JsonTest {
         JsonReader reader = new JsonReader("./data/testReaderGeneralWorkRoom.json");
         try {
             Gym wr = reader.read();
-            assertEquals("My work room", wr.getGymName());
+            assertEquals("Daniel", wr.getGymName());
             List<Member> memberList = wr.getMemberList();
-            assertEquals(2, memberList.size());
+            assertEquals(1, memberList.size());
+            checkThingy("Daniel", new Member("Daniel", 180, 80));
             
         } catch (IOException e) {
             fail("Couldn't read from file");

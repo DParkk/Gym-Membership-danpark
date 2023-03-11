@@ -60,6 +60,7 @@ class JsonWriterTest extends JsonTest {
             assertEquals("Daniel", wr.getGymName());
             List<Member> thingies = wr.getMemberList();
             assertEquals(2, thingies.size());
+            checkThingy("Daniel", new Member("Daniel", 180,80));
 
 
         } catch (IOException e) {

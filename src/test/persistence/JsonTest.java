@@ -1,6 +1,7 @@
 package persistence;
 
 
+
 import model.Member;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
