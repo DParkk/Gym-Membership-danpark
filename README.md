@@ -27,8 +27,8 @@ The part where they can compete with their run-distance will give more fun and c
 - As a user, I want to see the first place for "run-distance" among the gym members.
 - As a user, I want to be able to see my BMI score.
 - As a user, I want to be able to check if my BMI score is in the average or not.
-- As a user, I want to be able to save my member's information to file (if I so choose)
-- As a user, I want to be able to be able to load my member's information from file (if I so choose)
+- As a user, I want to be able to save member's name to file (if I so choose)
+- As a user, I want to be able to be able to load member's name from file (if I so choose)
 
 
 ### Citation
