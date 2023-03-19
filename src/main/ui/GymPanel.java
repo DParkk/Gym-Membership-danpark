@@ -19,16 +19,18 @@ public class GymPanel extends JFrame implements ActionListener {
     private JTextField heightField;
     private JTextArea memberInList;
 
+    @SuppressWarnings("checkstyle:MethodLength")
     public GymPanel() {
         super("Gym Application");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setPreferredSize(new Dimension(400, 200));
+        setPreferredSize(new Dimension(500, 500));
         ((JPanel) getContentPane()).setBorder(new EmptyBorder(15, 15, 15, 15));
         setLayout(new FlowLayout());
 
         JPanel memberPrint = new JPanel();
-        memberPrint.setBorder(new EmptyBorder(15,15,15,15));
+        memberPrint.setLayout(new BoxLayout(memberPrint, BoxLayout.PAGE_AXIS));
         memberInList = new JTextArea(20,20);
+        memberInList.setEditable(false);
         JScrollPane scrollPane = new JScrollPane(memberInList);
 
         memberPrint.add(new JLabel("List Of Members: "));
@@ -36,11 +38,8 @@ public class GymPanel extends JFrame implements ActionListener {
 
         JButton btn = new JButton("Add Member");
         btn.setActionCommand("Add Member");
-        btn.addActionListener(this); // Sets "this" object as an action listener for btn
-        // so that when the btn is clicked,
-        // this.actionPerformed(ActionEvent e) will be called.
-        // You could also set a different object, if you wanted
-        // a different object to respond to the button click
+        btn.addActionListener(this);
+
         memberList = new ArrayList<>();
         nameLabel = new JLabel("Name: ");
         nameField = new JTextField(30);
@@ -70,6 +69,8 @@ public class GymPanel extends JFrame implements ActionListener {
         add(weightField);
         add(btn);
 
+        add(memberPrint);
+
         pack();
         setLocationRelativeTo(null);
         setVisible(true);
@@ -83,7 +84,7 @@ public class GymPanel extends JFrame implements ActionListener {
                                         Double.parseDouble(heightField.getText()));
             memberList.add(member);
 
-            memberInList.append(member.toString());
+            memberInList.append(member.toString() + "\n");
 
             nameLabel.setText("Added Member: " + member.getName());
             nameField.setText("");
