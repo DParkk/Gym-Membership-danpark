@@ -1,7 +1,6 @@
 package ui;
 
 import model.Member;
-import model.Gym;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
@@ -84,7 +83,7 @@ public class GymPanel extends JFrame implements ActionListener {
                                         Double.parseDouble(heightField.getText()));
             memberList.add(member);
 
-            memberInList.append(member.toString() + "\n");
+            memberInList.append(member + "\n");
 
             nameLabel.setText("Added Member: " + member.getName());
             nameField.setText("");
