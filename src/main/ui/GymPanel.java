@@ -2,24 +2,22 @@ package ui;
 
 import model.Gym;
 import model.Member;
-import model.Gym;
+
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.FileNotFoundException;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 
-import org.json.JSONObject;
 import persistence.JsonReader;
 import persistence.JsonWriter;
 
 // GUI that represents the Gym Membership
-
 public class GymPanel extends JFrame implements ActionListener {
     private Gym gym;
     private JLabel nameLabel;
@@ -31,26 +29,29 @@ public class GymPanel extends JFrame implements ActionListener {
     private JTextArea memberInList;
     private JsonWriter writer;
     private JsonReader reader;
-    private Image backgroundImage;
+    private ImageIcon backgroundImage;
+    private BufferedImage bufferedImage;
 
+
+    //GUI for gym application
     @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
     public GymPanel() {
         super("Gym Application");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setPreferredSize(new Dimension(500, 700));
+        setPreferredSize(new Dimension(500, 800));
         ((JPanel) getContentPane()).setBorder(new EmptyBorder(15, 15, 15, 15));
         setLayout(new FlowLayout());
 
         gym = new Gym();
-        backgroundImage = new ImageIcon("./data/gymImage.jpeg").getImage();
+        backgroundImage = new ImageIcon("./data/gymImage.jpeg");
 
-        JPanel memberPrint = new JPanel() {
-            @Override
-            public void paintComponent(Graphics g) {
-                super.paintComponents(g);
-                g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), this);
-            }
-        };
+
+        // JLabel showing "Daniel's Gym" image
+        JLabel label = new JLabel();
+        label.setIcon(backgroundImage);
+        add(label);
+
+        JPanel memberPrint = new JPanel();
 
         memberPrint.setLayout(new BoxLayout(memberPrint, BoxLayout.PAGE_AXIS));
         memberInList = new JTextArea(20,20);
@@ -61,13 +62,13 @@ public class GymPanel extends JFrame implements ActionListener {
 
 
 
-        JButton btn = new JButton("Add Member");
+        JButton addBtn = new JButton("Add Member");
         JButton saveBtn = new JButton(("Save"));
         JButton loadBtn = new JButton(("Load"));
         JButton clearBtn = new JButton("Clear");
         JButton sortBtn = new JButton("Sort");
-        btn.setActionCommand("Add Member");
-        btn.addActionListener(this);
+        addBtn.setActionCommand("Add Member");
+        addBtn.addActionListener(this);
         clearBtn.setActionCommand("Clear");
         clearBtn.addActionListener(this);
         saveBtn.setActionCommand("Save");
@@ -119,16 +120,11 @@ public class GymPanel extends JFrame implements ActionListener {
         sortMemberButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Collections.sort(gym.getMemberList(), new Comparator<Member>() {
-                    @Override
-                    public int compare(Member o1, Member o2) {
-                        return o1.getName().compareToIgnoreCase(o2.getName());
-                    }
-                });
+                Collections.sort(gym.getMemberList(), (o1, o2) -> o1.getName().compareToIgnoreCase(o2.getName()));
 
             }
         });
-
+        // Save member in list using json.
         saveMemberButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -142,7 +138,7 @@ public class GymPanel extends JFrame implements ActionListener {
                 }
             }
         });
-
+        // Loading member in list using json.
         loadMemberButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -170,10 +166,11 @@ public class GymPanel extends JFrame implements ActionListener {
         add(heightField);
         add(weightLabel);
         add(weightField);
-        add(btn);
+        add(addBtn);
         add(clearBtn);
         add(saveBtn);
         add(loadBtn);
+        add(sortBtn);
 
         add(memberPrint);
 
@@ -228,16 +225,17 @@ public class GymPanel extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(GymPanel.this,"Couldn't load from file");
             }
         } else if (e.getActionCommand().equals("Sort")) {
-            Collections.sort(gym.getMemberList(), new Comparator<Member>() {
-                @Override
-                public int compare(Member o1, Member o2) {
-                    return o1.getName().compareToIgnoreCase(o2.getName());
-                }
-            });
+            Collections.sort(gym.getMemberList(), (o1, o2) -> o1.getName().compareToIgnoreCase(o2.getName()));
+            memberInList.setText("");
+            for (Member member : gym.getMemberList()) {
+                memberInList.append(member.getName() + "\n");
+            }
+            JOptionPane.showMessageDialog(GymPanel.this,"Members Sorted");
         }
     }
 
     public static void main(String[] args) {
         new GymPanel();
     }
+
 }

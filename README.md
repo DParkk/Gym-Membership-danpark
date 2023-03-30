@@ -29,8 +29,11 @@ The part where they can compete with their run-distance will give more fun and c
 - As a user, I want to be able to check if my BMI score is in the average or not.
 - As a user, I want to be able to save member's name to file (if I so choose)
 - As a user, I want to be able to be able to load member's name from file (if I so choose)
+- As a user, I want to sort members alphabetically.
+- As a user, I want to clear members in memberList-panel.
 
 
 ### Citation
 - Referred to "JsonSerializationDemo" to implement the JSON data.
 - Referred to "LabelChanger" from edX page.
+- Gym image from "https://play.google.com/store/apps/details?id=digifit.android.virtuagym.pro.danielsgym&hl=en_CA&gl=US"
