@@ -9,7 +9,7 @@ import java.util.Collections;
 import java.util.List;
 
 // Gym Registration application
-public class Gym implements Writable {
+public class Gym extends ArrayList<Member> implements Writable {
     private ArrayList<Member> memberList;
     private String gymName;
 
@@ -28,7 +28,7 @@ public class Gym implements Writable {
 
 
     public List<Member> getMemberList() {
-        return Collections.unmodifiableList(memberList);
+        return memberList;
     }
 
 

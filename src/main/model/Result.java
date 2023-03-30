@@ -1,5 +1,6 @@
 package model;
 
+// Result class to represent tie record.
 public class Result {
     private boolean tie;
     private Member mostDist;

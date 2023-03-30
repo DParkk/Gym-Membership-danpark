@@ -8,7 +8,7 @@ import persistence.Writable;
 
 // Represents a Member having a name, weight, and height.
 
-public class Member implements Writable {
+public class Member implements Writable  {
     private final String name;
     private final double weight;
     private final double height;

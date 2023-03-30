@@ -8,6 +8,8 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+// Testing for methods in Gym class.
+
 public class GymTest {
 
     private Gym gym1;
