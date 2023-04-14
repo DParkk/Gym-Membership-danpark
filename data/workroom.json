@@ -1,14 +1,19 @@
 {
     "thingies": [
         {
-            "name": "daniel",
+            "name": "daneil",
             "weight": 123,
             "height": 123
         },
         {
             "name": "paul",
-            "weight": 3121,
-            "height": 312
+            "weight": 321,
+            "height": 321
+        },
+        {
+            "name": "avc",
+            "weight": 321,
+            "height": 321
         }
     ],
     "name": "Daniel"

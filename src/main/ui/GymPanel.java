@@ -10,6 +10,7 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
 import java.util.Collections;
 import java.util.Iterator;
 
@@ -67,6 +68,7 @@ public class GymPanel extends JFrame implements ActionListener {
         JButton loadBtn = new JButton(("Load"));
         JButton clearBtn = new JButton("Clear");
         JButton sortBtn = new JButton("Sort");
+        JButton quitBtn = new JButton("Quit");
         addBtn.setActionCommand("Add Member");
         addBtn.addActionListener(this);
         clearBtn.setActionCommand("Clear");
@@ -77,6 +79,9 @@ public class GymPanel extends JFrame implements ActionListener {
         loadBtn.addActionListener(this);
         sortBtn.setActionCommand("Sort");
         sortBtn.addActionListener(this);
+        quitBtn.setActionCommand("Quit");
+        quitBtn.addActionListener(this);
+
 
 
         nameLabel = new JLabel("Name: ");
@@ -94,6 +99,9 @@ public class GymPanel extends JFrame implements ActionListener {
         JButton loadMemberButton = new JButton("Load");
         JButton clearMemberButton = new JButton("Clear");
         JButton sortMemberButton = new JButton("Sort");
+        JButton quitMemberButton = new JButton("Quit");
+
+
 
 
         // add Member to the member List
@@ -155,6 +163,14 @@ public class GymPanel extends JFrame implements ActionListener {
             }
         });
 
+        quitMemberButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+                printLog(EventLog.getInstance());
+            }
+        });
+
 
 
 
@@ -171,6 +187,7 @@ public class GymPanel extends JFrame implements ActionListener {
         add(saveBtn);
         add(loadBtn);
         add(sortBtn);
+        add(quitBtn);
 
         add(memberPrint);
 
@@ -178,7 +195,10 @@ public class GymPanel extends JFrame implements ActionListener {
         setLocationRelativeTo(null);
         setVisible(true);
         setResizable(false);
+
     }
+
+
 
     //This is the method that is called when the JButton btn is clicked
 
@@ -197,19 +217,14 @@ public class GymPanel extends JFrame implements ActionListener {
             nameField.setText("");
             heightField.setText("");
             weightField.setText("");
-            Iterator<Event> it = EventLog.getInstance().iterator();
-            while (it.hasNext()) {
-                System.out.println(it.next().toString() + "\n");
-            }
+
+
             //This is the method that is called when the JButton clearBtn is clicked
         } else if (e.getActionCommand().equals("Clear"))  {
             gym.getMemberList().clear();
             memberInList.setText("");
             EventLog.getInstance().logEvent(new Event("Member(s) Cleared in the list"));
-            Iterator<Event> it = EventLog.getInstance().iterator();
-            while (it.hasNext()) {
-                System.out.println(it.next().toString() + "\n");
-            }
+
             JOptionPane.showMessageDialog(GymPanel.this,"Members Cleared.");
 
 
@@ -219,10 +234,7 @@ public class GymPanel extends JFrame implements ActionListener {
                 writer.write(gym);
                 writer.close();
                 EventLog.getInstance().logEvent(new Event("Saved member(s) in the list"));
-                Iterator<Event> it = EventLog.getInstance().iterator();
-                while (it.hasNext()) {
-                    System.out.println(it.next().toString() + "\n");
-                }
+
                 JOptionPane.showMessageDialog(GymPanel.this, "Members saved to the list");
             } catch (Exception exception) {
                 JOptionPane.showMessageDialog(GymPanel.this, "Couldn't save members");
@@ -232,10 +244,7 @@ public class GymPanel extends JFrame implements ActionListener {
                 gym = reader.read();
                 memberInList.setText("");
                 EventLog.getInstance().logEvent(new Event("Member(s) Loaded"));
-                Iterator<Event> it = EventLog.getInstance().iterator();
-                while (it.hasNext()) {
-                    System.out.println(it.next().toString() + "\n");
-                }
+
                 for (Member member : gym.getMemberList()) {
                     memberInList.append(member.getName() + "\n");
                 }
@@ -250,13 +259,24 @@ public class GymPanel extends JFrame implements ActionListener {
                 memberInList.append(member.getName() + "\n");
             }
             EventLog.getInstance().logEvent(new Event("Members Sorted alphabetically"));
-            Iterator<Event> it = EventLog.getInstance().iterator();
-            while (it.hasNext()) {
-                System.out.println(it.next().toString() + "\n");
-            }
+
             JOptionPane.showMessageDialog(GymPanel.this,"Members Sorted");
+        } else if (e.getActionCommand().equals("Quit")) {
+            printLog(EventLog.getInstance());
+            System.exit(0);
+        }
+
+    }
+
+    public void printLog(EventLog el) {
+        Iterator<Event> it = EventLog.getInstance().iterator();
+        while (it.hasNext()) {
+            System.out.println(it.next().toString() + "\n");
         }
     }
+
+
+
 
 
 
