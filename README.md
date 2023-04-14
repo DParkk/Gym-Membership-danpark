@@ -47,4 +47,7 @@ The part where they can compete with their run-distance will give more fun and c
 - Sort members alphabetically.
 
 ### Phase 4: Task 3
+- I would refactor the code in GymPanel(GUI) since there are lots of repetitive codes such as *'addActionListener'*.
+- Also, *ActionPerformed* method in GUI class could have implemented some helper functions in order to prevent
+MethodLength exceed.
 
