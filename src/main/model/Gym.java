@@ -5,7 +5,6 @@ import org.json.JSONObject;
 import persistence.Writable;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 // Gym Registration application
