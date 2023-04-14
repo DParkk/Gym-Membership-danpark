@@ -1,18 +1,18 @@
 package ui;
 
-import model.Gym;
-import model.Member;
 
-import javax.imageio.ImageIO;
+import model.EventLog;
+import model.Gym;
+import model.Event;
+import model.Member;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 import java.util.Collections;
+import java.util.Iterator;
+
 
 import persistence.JsonReader;
 import persistence.JsonWriter;
@@ -30,7 +30,7 @@ public class GymPanel extends JFrame implements ActionListener {
     private JsonWriter writer;
     private JsonReader reader;
     private ImageIcon backgroundImage;
-    private BufferedImage bufferedImage;
+
 
 
     //GUI for gym application
@@ -102,7 +102,7 @@ public class GymPanel extends JFrame implements ActionListener {
             public void actionPerformed(ActionEvent e) {
                 Member member = new Member(nameField.getText(),Double.parseDouble(weightField.getText()),
                         Double.parseDouble(heightField.getText()));
-                gym.getMemberList().add(member);
+                gym.addMember(member);
                 JOptionPane.showMessageDialog(GymPanel.this,"Member Added.");
             }
         });
@@ -187,7 +187,7 @@ public class GymPanel extends JFrame implements ActionListener {
         if (e.getActionCommand().equals("Add Member")) {
             Member member = new Member(nameField.getText(),Double.parseDouble(weightField.getText()),
                                         Double.parseDouble(heightField.getText()));
-            gym.getMemberList().add(member);
+            gym.addMember(member);
 
             memberInList.append(member.getName() + "\n");
             // Given the initialization of the program and this variable, anything added ("appended") to memberInList
@@ -197,18 +197,32 @@ public class GymPanel extends JFrame implements ActionListener {
             nameField.setText("");
             heightField.setText("");
             weightField.setText("");
-
+            Iterator<Event> it = EventLog.getInstance().iterator();
+            while (it.hasNext()) {
+                System.out.println(it.next().toString() + "\n");
+            }
             //This is the method that is called when the JButton clearBtn is clicked
         } else if (e.getActionCommand().equals("Clear"))  {
             gym.getMemberList().clear();
             memberInList.setText("");
+            EventLog.getInstance().logEvent(new Event("Cleared"));
+            Iterator<Event> it = EventLog.getInstance().iterator();
+            while (it.hasNext()) {
+                System.out.println(it.next().toString() + "\n");
+            }
             JOptionPane.showMessageDialog(GymPanel.this,"Members Cleared.");
+
 
         } else if (e.getActionCommand().equals("Save")) {
             try {
                 writer.open();
                 writer.write(gym);
                 writer.close();
+                EventLog.getInstance().logEvent(new Event("Saved"));
+                Iterator<Event> it = EventLog.getInstance().iterator();
+                while (it.hasNext()) {
+                    System.out.println(it.next().toString() + "\n");
+                }
                 JOptionPane.showMessageDialog(GymPanel.this, "Members saved to the list");
             } catch (Exception exception) {
                 JOptionPane.showMessageDialog(GymPanel.this, "Couldn't save members");
@@ -217,6 +231,11 @@ public class GymPanel extends JFrame implements ActionListener {
             try {
                 gym = reader.read();
                 memberInList.setText("");
+                EventLog.getInstance().logEvent(new Event("Loaded"));
+                Iterator<Event> it = EventLog.getInstance().iterator();
+                while (it.hasNext()) {
+                    System.out.println(it.next().toString() + "\n");
+                }
                 for (Member member : gym.getMemberList()) {
                     memberInList.append(member.getName() + "\n");
                 }
@@ -230,9 +249,16 @@ public class GymPanel extends JFrame implements ActionListener {
             for (Member member : gym.getMemberList()) {
                 memberInList.append(member.getName() + "\n");
             }
+            EventLog.getInstance().logEvent(new Event("Sorted"));
+            Iterator<Event> it = EventLog.getInstance().iterator();
+            while (it.hasNext()) {
+                System.out.println(it.next().toString() + "\n");
+            }
             JOptionPane.showMessageDialog(GymPanel.this,"Members Sorted");
         }
     }
+
+
 
     public static void main(String[] args) {
         new GymPanel();

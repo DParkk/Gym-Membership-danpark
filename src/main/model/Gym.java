@@ -24,6 +24,7 @@ public class Gym extends ArrayList<Member> implements Writable {
 
     public void addMember(Member member) {
         memberList.add(member);
+        EventLog.getInstance().logEvent(new Event("Added " + member.getName()));
     }
 
 
