@@ -14,7 +14,6 @@ public class Main {
             System.out.println("Unable to run application: file not found");
         }
     }
-    // Effects: prints the log to the console
 
 
 }

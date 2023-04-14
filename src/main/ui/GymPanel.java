@@ -268,6 +268,7 @@ public class GymPanel extends JFrame implements ActionListener {
 
     }
 
+    // Effects: prints the log to the console
     public void printLog(EventLog el) {
         Iterator<Event> it = EventLog.getInstance().iterator();
         while (it.hasNext()) {
