@@ -39,7 +39,7 @@ The part where they can compete with their run-distance will give more fun and c
 - Gym image from "https://play.google.com/store/apps/details?id=digifit.android.virtuagym.pro.danielsgym&hl=en_CA&gl=US"
 
 ### Phase 4: Task 2
-- When users hit "Quit" button, it will end the program and print the log.
+- When the user hit "Quit", it will end the program and print the log.
 - Add members to the list.
 - Clear members in the list.
 - Save members in the list.
