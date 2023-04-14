@@ -205,7 +205,7 @@ public class GymPanel extends JFrame implements ActionListener {
         } else if (e.getActionCommand().equals("Clear"))  {
             gym.getMemberList().clear();
             memberInList.setText("");
-            EventLog.getInstance().logEvent(new Event("Cleared"));
+            EventLog.getInstance().logEvent(new Event("Member(s) Cleared in the list"));
             Iterator<Event> it = EventLog.getInstance().iterator();
             while (it.hasNext()) {
                 System.out.println(it.next().toString() + "\n");
@@ -218,7 +218,7 @@ public class GymPanel extends JFrame implements ActionListener {
                 writer.open();
                 writer.write(gym);
                 writer.close();
-                EventLog.getInstance().logEvent(new Event("Saved"));
+                EventLog.getInstance().logEvent(new Event("Saved member(s) in the list"));
                 Iterator<Event> it = EventLog.getInstance().iterator();
                 while (it.hasNext()) {
                     System.out.println(it.next().toString() + "\n");
@@ -231,7 +231,7 @@ public class GymPanel extends JFrame implements ActionListener {
             try {
                 gym = reader.read();
                 memberInList.setText("");
-                EventLog.getInstance().logEvent(new Event("Loaded"));
+                EventLog.getInstance().logEvent(new Event("Member(s) Loaded"));
                 Iterator<Event> it = EventLog.getInstance().iterator();
                 while (it.hasNext()) {
                     System.out.println(it.next().toString() + "\n");
@@ -249,7 +249,7 @@ public class GymPanel extends JFrame implements ActionListener {
             for (Member member : gym.getMemberList()) {
                 memberInList.append(member.getName() + "\n");
             }
-            EventLog.getInstance().logEvent(new Event("Sorted"));
+            EventLog.getInstance().logEvent(new Event("Members Sorted alphabetically"));
             Iterator<Event> it = EventLog.getInstance().iterator();
             while (it.hasNext()) {
                 System.out.println(it.next().toString() + "\n");

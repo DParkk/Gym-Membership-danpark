@@ -37,3 +37,10 @@ The part where they can compete with their run-distance will give more fun and c
 - Referred to "JsonSerializationDemo" to implement the JSON data.
 - Referred to "LabelChanger" from edX page.
 - Gym image from "https://play.google.com/store/apps/details?id=digifit.android.virtuagym.pro.danielsgym&hl=en_CA&gl=US"
+
+### Phase 4: Task 2
+- Add members to the list.
+- Clear members in the list.
+- Save members in the list.
+- Load the saved members to the list.
+- Sort members alphabetically.
